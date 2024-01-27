@@ -14,6 +14,17 @@ class Plant(db.Model):
         self.is_poisonous    =    is_poisonous
         self.primary_color   =   primary_color
     
+    def update(self):
+        db.session.commit()
+
+    def delete(self):
+        db.session.delete(self)
+        db.session.commit()
+    
+    def insert(self):
+        db.session.add(self)
+        db.session.commit()
+
     def format(self):
         return {
             'id': self.id,
